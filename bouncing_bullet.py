@@ -50,7 +50,7 @@ class GameView(arcade.View):
 
     def setup(self):
 
-        self.setup_map("./maps/map_2/map.tmx")
+        self.setup_map("./maps/map_2/map_v2.tmx")
 
         self.bg_sprites = [["walls", self.wall_list], ["floor", self.floor_list], ["deadly", self.deadly_list]]
         self.fg_sprites = [self.bullets, self.players]

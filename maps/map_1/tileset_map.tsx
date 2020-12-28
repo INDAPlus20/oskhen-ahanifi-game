@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.4" tiledversion="1.4.3" name="tileset_map" tilewidth="16" tileheight="16" tilecount="1666" columns="34">
- <image source="./sprites/tilesets/map_1_tileset.png" trans="ff00ff" width="544" height="784"/>
+ <image source="../../sprites/tilesets/map_1_tileset.png" trans="ff00ff" width="544" height="784"/>
  <tile id="180">
   <objectgroup draworder="index" id="2">
    <object id="1" x="-0.0512396" y="6.02926" width="16.0275" height="9.94697"/>

@@ -45,6 +45,11 @@ class InputContext():
     abilities_pressed: dict()
     prev_key: arcade.key = None
     time_prev_press: float = 0
+    def reset(self):
+        self.move_keys_pressed=self.move_keys_pressed.fromkeys(self.move_keys_pressed,False)
+        self.abilities_pressed=self.abilities_pressed.fromkeys(self.abilities_pressed,False)
+        self.prev_key: arcade.key = None
+        self.time_prev_press: float = 0
 
 
 class DefaultState():
@@ -287,6 +292,7 @@ class Player(arcade.Sprite):
             self.health = self.maxhealth
             self.center_x = self.start_x
             self.center_y = self.start_y
+            self.input_context.reset()
             self.change_state(SpawnState(player=self))
 
     def take_damage(self, damage):
@@ -313,28 +319,3 @@ class Player(arcade.Sprite):
             self.set_texture(0)
         elif self.move_direction.x<0:
             self.set_texture(1)
-
-
-MOVE_MAP_PLAYER_1 = {
-    arcade.key.W: Vec2d(0, 1),
-    arcade.key.S: Vec2d(0, -1),
-    arcade.key.A: Vec2d(-1, 0),
-    arcade.key.D: Vec2d(1, 0),
-}
-
-KEY_MAP_PLAYER_1 = {
-    arcade.key.SPACE:"shoot",
-    arcade.key.LSHIFT: "dash",
-}
-
-KEY_MAP_PLAYER_2 = {
-    arcade.key.PERIOD: "shoot",
-    arcade.key.MINUS: "dash",
-}
-
-MOVE_MAP_PLAYER_2 = {
-    arcade.key.I: Vec2d(0, 1),
-    arcade.key.K: Vec2d(0, -1),
-    arcade.key.J: Vec2d(-1, 0),
-    arcade.key.L: Vec2d(1, 0),
-}
