@@ -4,7 +4,7 @@ import arcade
 from pymunk.vec2d import Vec2d
 from logic import Player
 
-def parsefile(filename):
+def parsefile(filename="config.cfg"):
 
     f = open(filename, "r").readlines()
     conf = [i.strip("\n") for i in f if i[0] != "#" and i[0] != "\n"]

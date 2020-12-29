@@ -57,7 +57,7 @@ class GameView(arcade.View):
 
         ## Parse Config File
 
-        settings = parseconf.parsefile("config.cfg")
+        settings = parseconf.parsefile()
 
         # Player setups
 
