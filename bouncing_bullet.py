@@ -160,16 +160,12 @@ class GameView(arcade.View):
 
     def on_update(self, delta_time):
 
+        self.boardstate = [[[y[0], ""] for y in x] for x in self.boardstate]
+
         for spritelist in self.fg_sprites:
             for sprite in spritelist:
                 x = [int(i * COORDINATE_MAPPING) for i in sprite.position]
                 self.boardstate[x[0]][x[1]][1] = sprite
-
-        # for x in range(len(self.boardstate)):
-        #     for y in range(len(self.boardstate[0])):
-        #         self.boardstate[x][y][1] = ""
-
-        #self.boardstate = [[[y[0], ""] for y in x] for x in self.boardstate]
 
         for i,player in enumerate(self.players):
             if player.lives == 0:
@@ -178,7 +174,7 @@ class GameView(arcade.View):
             self.player_damage_timers[i]+=delta_time
 
         for agent in self.agents:
-            #agent.observation = self.boardstate
+            agent.observation = self.boardstate
             inputs=agent.player.input_context
             inputs.move_keys_pressed=inputs.move_keys_pressed.fromkeys(inputs.move_keys_pressed,False)
             inputs.abilities_pressed=inputs.abilities_pressed.fromkeys(inputs.abilities_pressed,False)
