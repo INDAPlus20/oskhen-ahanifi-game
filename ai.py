@@ -43,14 +43,14 @@ def string_state_to_int_state(state):
     for i in range(np_state.shape[0]):
         for j in range(np_state.shape[1]):
             if state[i][j][1] != '':
-                if type(state[i][j][1]).__name__ != "Bill":
-                    if state[i][j][1].name==settings["p1_name"]:
-                        players_health[0]=state[i][j][1].health
-                    else:
-                        players_health[1]=state[i][j][1].health
-                    np_state[i, j] = 5
-                elif type(state[i][j][1]).__name__ == "Bill":
+                if type(state[i][j][1]).__name__ == "Bullet":
                     np_state[i, j] = 6
+                else:
+                    if state[i][j][1].name == settings["p1_name"]:
+                        players_health[0] = state[i][j][1].health
+                    else:
+                        players_health[1] = state[i][j][1].health
+                    np_state[i, j] = 5
             else:
                 np_state[i, j] = STRING_VALUE_MAP[state[i][j][0]]
 
