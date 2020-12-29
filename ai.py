@@ -59,8 +59,8 @@ def string_state_to_int_state(state):
 
 def predict(observations, action_space):
 
-    current_s,current_players_health= string_state_to_int_state(observations)
-    print(observations)
+    current_s, current_players_health = string_state_to_int_state(observations)
+    #print(observations)
     plt.imshow(np.rot90(current_s))
     plt.gray()
     plt.show()

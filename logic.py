@@ -25,7 +25,7 @@ COOLDOWNS ={
 class Bullet(arcade.Sprite):
     def __init__(self, filename, scaling, max_bounces, speed=7):
         super().__init__(filename, scaling)
-        self.name = "bill"
+        self.name = "Bill"
         self.bounces = 0
         self.max_bounces = max_bounces
         self.speed = speed
